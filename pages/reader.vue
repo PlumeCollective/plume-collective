@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
 import ePub from "epubjs";
 import type { Book, Rendition, Location } from "epubjs";
 

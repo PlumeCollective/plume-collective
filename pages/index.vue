@@ -1,15 +1,30 @@
+<script setup lang="ts">
+const user = useSupabaseUser();
+
+watchEffect(() => {
+  if (user.value) {
+    return navigateTo("/dashboard");
+  }
+});
+</script>
+
 <template>
-  <div class="hero min-h-screen">
+  <div class="hero min-h-screen bg-base-100">
     <div class="hero-content text-center">
       <div class="max-w-md">
-        <h1 class="text-5xl font-bold">Plume Collective</h1>
+        <h1 class="text-5xl font-bold">Bienvenue sur Plume Collective</h1>
         <p class="py-6">
-          Découvrez des histoires captivantes et des auteurs talentueux. Lisez
-          des ebooks gratuitement et soutenez la création littéraire.
+          Connectez-vous ou créez un compte pour découvrir des livres uniques,
+          corriger des manuscrits, et soutenir les auteurs indépendants.
         </p>
-        <NuxtLink to="/reader" class="btn btn-accent text-white">
-          Lire "Gatsby le Magnifique"
-        </NuxtLink>
+        <div class="space-x-4">
+          <NuxtLink to="/auth/login" class="btn btn-primary"
+            >Se connecter</NuxtLink
+          >
+          <NuxtLink to="/auth/signup" class="btn btn-accent text-white"
+            >Créer un compte</NuxtLink
+          >
+        </div>
       </div>
     </div>
   </div>
