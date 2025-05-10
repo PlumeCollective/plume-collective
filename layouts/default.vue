@@ -2,5 +2,6 @@
   <div>
     <NavigationBar />
     <slot />
+    <FooterSection />
   </div>
 </template>
