@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "cupcake";
+  default: true;
+  --color-primary: #c77cff; /* Primary Purple */
+  --color-primary-content: #dabeed; /* Secondary Purple */
+  --color-secondary: #4646cf; /* Secondary Blue */
+  --color-secondary-content: #e0eaff; /* Primary Blue */
+  --color-accent: #ffcb64; /* Primary Orange */
+  --color-accent-content: #f35b04; /* Secondary Orange */
+  --color-warning: #ffb92e; /* Secondary Yellow */
+  --color-neutral: #000000; /* Black */
+  --color-neutral-content: #ffffff; /* White */
+  --color-base-100: #fffee0; /* Primary Beige */
+}
