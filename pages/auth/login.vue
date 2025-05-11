@@ -50,7 +50,7 @@ const handleLogin = async () => {
     </button>
     <div class="text-sm text-center text-gray-500">
       Pas encore de compte ?
-      <NuxtLink to="auth/signup" class="text-blue-500 underline">
+      <NuxtLink to="/auth/signup" class="text-blue-500 underline">
         Créer un compte
       </NuxtLink>
     </div>
