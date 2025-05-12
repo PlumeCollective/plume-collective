@@ -528,6 +528,7 @@ export type Database = {
           last_login: string | null
           last_name: string | null
           profile_picture: string | null
+          role: Database["public"]["Enums"]["user_role"]
           stripe_account_id: string | null
           username: string | null
         }
@@ -540,6 +541,7 @@ export type Database = {
           last_login?: string | null
           last_name?: string | null
           profile_picture?: string | null
+          role?: Database["public"]["Enums"]["user_role"]
           stripe_account_id?: string | null
           username?: string | null
         }
@@ -552,6 +554,7 @@ export type Database = {
           last_login?: string | null
           last_name?: string | null
           profile_picture?: string | null
+          role?: Database["public"]["Enums"]["user_role"]
           stripe_account_id?: string | null
           username?: string | null
         }
@@ -576,6 +579,7 @@ export type Database = {
       transaction_status: "successful" | "failed" | "pending"
       transaction_type: "subscription" | "book_purchase" | "proofreading"
       user_book_type: "author" | "reader"
+      user_role: "reader" | "author" | "admin"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -702,6 +706,7 @@ export const Constants = {
       transaction_status: ["successful", "failed", "pending"],
       transaction_type: ["subscription", "book_purchase", "proofreading"],
       user_book_type: ["author", "reader"],
+      user_role: ["reader", "author", "admin"],
     },
   },
 } as const

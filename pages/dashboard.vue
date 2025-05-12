@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { currentUser } from "@/store/state";
 const user = useSupabaseUser();
 
 watchEffect(() => {
   if (!user.value) {
-    return navigateTo("/");
+    return navigateTo("/auth/login");
   }
 });
 </script>
@@ -21,6 +22,7 @@ watchEffect(() => {
           Lire "Gatsby le Magnifique"
         </NuxtLink>
         <EbookUploader />
+        <div>{{ currentUser }}</div>
       </div>
     </div>
   </div>
