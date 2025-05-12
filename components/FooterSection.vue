@@ -1,11 +1,10 @@
 <template>
   <footer class="bg-white text-neutral px-8 py-12 border-t">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Logo + Punchline -->
       <div>
-        <img
-          src="/full-logo.svg"
-          alt="Plume Collective full logo"
+        <NuxtImg
+          src="/logo/plume-collective-logo.svg"
+          alt="Plume Collective logo"
           class="w-40 h-auto"
         />
         <p class="mt-4 text-sm font-semibold text-neutral">Punchline</p>

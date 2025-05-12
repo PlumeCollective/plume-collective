@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 @plugin "daisyui/theme" {
-  name: "cupcake";
+  name: "emerald";
   default: true;
   --color-primary: #c77cff; /* Primary Purple */
   --color-primary-content: #dabeed; /* Secondary Purple */
@@ -11,6 +11,6 @@
   --color-accent-content: #f35b04; /* Secondary Orange */
   --color-warning: #ffb92e; /* Secondary Yellow */
   --color-neutral: #000000; /* Black */
-  --color-neutral-content: #ffffff; /* White */
-  --color-base-100: #fffee0; /* Primary Beige */
+  --color-neutral-content: #fffee0; /* Primary Beige */
+  --color-base-100: #ffffff; /* White */
 }
