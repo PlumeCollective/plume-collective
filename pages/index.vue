@@ -4,6 +4,8 @@ const user = useSupabaseUser();
 watchEffect(() => {
   if (user.value) {
     return navigateTo("/dashboard");
+  } else {
+    return navigateTo("/auth/login");
   }
 });
 </script>
