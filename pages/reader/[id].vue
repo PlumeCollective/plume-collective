@@ -21,6 +21,8 @@ const rendition = ref<Rendition>();
 const currentLocation = ref<Location>();
 
 onMounted(async () => {
+  if (!import.meta.client) return;
+
   const filePath = `${id}.epub`;
 
   const { data, error } = await supabase.storage
