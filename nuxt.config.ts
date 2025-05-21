@@ -10,7 +10,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "fr",
       },
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+      link: [{ rel: "icon", type: "image/x-icon", href: "/plumy/plumy.svg" }],
     },
   },
   vite: {

@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { PhBookBookmark, PhPencilSimple } from "@phosphor-icons/vue";
-import { currentUser } from "@/store/state";
 import type { Database } from "@/database.types";
+
+const currentUser = useSupabaseUser();
+
+definePageMeta({
+  layout: "auth",
+});
 
 const supabase = useSupabaseClient<Database>();
 
@@ -11,7 +16,7 @@ const updateRole = async (role: "reader" | "author") => {
     return;
   }
 
-  const { data, error } = await supabase
+  const { error } = await supabase
     .from("users")
     .update({ role })
     .eq("id", currentUser.value.id)
@@ -22,9 +27,7 @@ const updateRole = async (role: "reader" | "author") => {
     console.error("Erreur lors de la mise à jour du rôle:", error.message);
     return;
   }
-
-  currentUser.value = data;
-  await navigateTo("/dashboard");
+  await navigateTo("/library");
 };
 </script>
 

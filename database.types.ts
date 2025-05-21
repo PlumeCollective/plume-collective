@@ -15,8 +15,8 @@ export type Database = {
           content: string | null
           date_created: string | null
           id: string
-          position_end: number | null
-          position_start: number | null
+          position_end: string | null
+          position_start: string | null
           response: string | null
           status: Database["public"]["Enums"]["annotation_status"] | null
           type: Database["public"]["Enums"]["annotation_type"] | null
@@ -27,8 +27,8 @@ export type Database = {
           content?: string | null
           date_created?: string | null
           id?: string
-          position_end?: number | null
-          position_start?: number | null
+          position_end?: string | null
+          position_start?: string | null
           response?: string | null
           status?: Database["public"]["Enums"]["annotation_status"] | null
           type?: Database["public"]["Enums"]["annotation_type"] | null
@@ -39,8 +39,8 @@ export type Database = {
           content?: string | null
           date_created?: string | null
           id?: string
-          position_end?: number | null
-          position_start?: number | null
+          position_end?: string | null
+          position_start?: string | null
           response?: string | null
           status?: Database["public"]["Enums"]["annotation_status"] | null
           type?: Database["public"]["Enums"]["annotation_type"] | null

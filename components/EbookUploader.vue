@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { Database } from "~/database.types";
+import ePub from "epubjs";
+
 const supabase = useSupabaseClient<Database>();
 const user = useSupabaseUser();
 const uploading = ref(false);
@@ -23,6 +25,15 @@ const uploadEbook = async (event: Event) => {
     return;
   }
 
+  const buffer = await file.arrayBuffer();
+
+  const bookFromFile = ePub(buffer);
+  await bookFromFile.opened;
+
+  const metadata = await bookFromFile.loaded.metadata;
+  const extractedTitle = metadata?.title?.trim();
+  const title = extractedTitle || file.name.replace(".epub", "");
+
   try {
     uploading.value = true;
     errorMessage.value = "";
@@ -33,8 +44,6 @@ const uploadEbook = async (event: Event) => {
       errorMessage.value = "Utilisateur non authentifié.";
       return;
     }
-
-    const title = file.name.replace(".epub", "");
 
     const { data: book, error: insertBookError } = await supabase
       .from("books")
@@ -66,6 +75,7 @@ const uploadEbook = async (event: Event) => {
     const { error: userBookError } = await supabase.from("user_books").insert({
       user_id: userId,
       book_id: book.id,
+      type: "author",
     });
 
     if (userBookError) throw userBookError;
@@ -80,9 +90,10 @@ const uploadEbook = async (event: Event) => {
   }
 };
 </script>
+
 <template>
-  <div class="w-full text-center mt-6">
-    <label class="btn btn-primary w-full cursor-pointer">
+  <div class="w-full text-start">
+    <label class="btn w-full label label-text">
       {{ uploading ? "Importation en cours..." : "Importer un ebook" }}
       <input
         ref="fileInput"
