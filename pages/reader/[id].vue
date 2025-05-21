@@ -3,6 +3,10 @@ import ePub from "epubjs";
 import type { Book, Rendition, Location } from "epubjs";
 import type { Database } from "~/database.types";
 
+definePageMeta({
+  ssr: false,
+});
+
 const supabase = useSupabaseClient<Database>();
 const user = useSupabaseUser();
 const route = useRoute();

@@ -3,6 +3,10 @@ import { PhMagnifyingGlass } from "@phosphor-icons/vue";
 import ePub from "epubjs";
 import type { Book } from "epubjs";
 
+definePageMeta({
+  ssr: false,
+});
+
 const user = useSupabaseUser();
 
 watchEffect(() => {
