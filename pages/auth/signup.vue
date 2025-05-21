@@ -1,12 +1,21 @@
 <script setup lang="ts">
-import { currentUser } from "@/store/state";
+definePageMeta({
+  layout: "auth",
+});
 
 const supabase = useSupabaseClient();
+const user = useSupabaseUser();
 const email = ref("");
 const password = ref("");
 const confirmPassword = ref("");
 const loading = ref(false);
 const errorMessage = ref("");
+
+watchEffect(() => {
+  if (user.value) {
+    return navigateTo("/library");
+  }
+});
 
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
@@ -34,14 +43,6 @@ const handleSignUp = async () => {
     });
     if (error) throw error;
     if (!data.user) throw new Error("Utilisateur introuvable");
-
-    const { data: userData, error: userError } = await supabase
-      .from("users")
-      .select("*")
-      .eq("id", data.user.id)
-      .single();
-    if (userError) throw userError;
-    currentUser.value = userData;
 
     await navigateTo("/auth/role");
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

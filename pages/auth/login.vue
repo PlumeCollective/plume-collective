@@ -1,31 +1,32 @@
 <script setup lang="ts">
-import { currentUser } from "@/store/state";
+definePageMeta({
+  layout: "auth",
+});
 
 const supabase = useSupabaseClient();
+const user = useSupabaseUser();
 const email = ref("");
 const password = ref("");
 const loading = ref(false);
 const errorMessage = ref("");
 
+watchEffect(() => {
+  if (user.value) {
+    return navigateTo("/library");
+  }
+});
+
 const handleLogin = async () => {
   loading.value = true;
   errorMessage.value = "";
   try {
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
       email: email.value,
       password: password.value,
     });
     if (error) throw error;
 
-    const { data: userData, error: userError } = await supabase
-      .from("users")
-      .select("*")
-      .eq("id", data.user.id)
-      .single();
-    if (userError) throw userError;
-    currentUser.value = userData;
-
-    await navigateTo("/dashboard");
+    await navigateTo("/library");
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     errorMessage.value = error.message || "Erreur inconnue.";
@@ -95,9 +96,9 @@ const handleLogin = async () => {
           </NuxtLink>
         </div>
 
-        <div class="flex justify-center mt-8 text-sm">
+        <!-- <div class="flex justify-center mt-8 text-sm">
           <a href="#" class="link text-primary">Mot de passe oublié ?</a>
-        </div>
+        </div> -->
       </form>
     </div>
     <NuxtImg src="ui/connection-panel.png" alt="Mockup" class="h-full" />
