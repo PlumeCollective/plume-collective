@@ -1,12 +1,4 @@
 <script setup lang="ts">
-import {
-  PhPlus,
-  PhFileArrowUp,
-  PhHeart,
-  PhShoppingCart,
-  PhBookBookmark,
-} from "@phosphor-icons/vue";
-
 const user = useSupabaseUser();
 
 watchEffect(() => {
@@ -46,7 +38,8 @@ watchEffect(() => {
             class="bg-secondary/10 rounded-xl p-6 flex flex-col justify-between gap-2 shadow-md opacity-50 pointer-events-none select-none"
           >
             <div class="flex flex-col gap-1">
-              <PhPlus
+              <Icon
+                name="ph:plus"
                 class="text-3xl bg-primary/10 rounded-full text-primary w-10 h-10 p-2"
               />
               <span class="text-xl font-semibold">Créer un livre</span>
@@ -62,7 +55,8 @@ watchEffect(() => {
           class="flex-1 bg-secondary/10 rounded-xl p-6 flex flex-col justify-between gap-2 shadow-md"
         >
           <div class="flex flex-col gap-1">
-            <PhFileArrowUp
+            <Icon
+              name="ph:file-arrow-up"
               class="text-3xl bg-primary/10 rounded-full text-primary w-10 h-10 p-2"
             />
             <span class="text-xl font-semibold">Importer un livre</span>
@@ -88,7 +82,8 @@ watchEffect(() => {
             class="bg-secondary/10 rounded-xl p-6 flex flex-col justify-between gap-2 shadow-md h-full"
           >
             <div class="flex flex-col gap-2">
-              <PhBookBookmark
+              <Icon
+                name="ph:book-bookmark"
                 class="text-3xl bg-primary/10 rounded-full text-primary w-10 h-10 p-2"
               />
               <span class="text-xl font-semibold">Le Voyageur</span>
@@ -114,7 +109,8 @@ watchEffect(() => {
             class="bg-secondary/10 rounded-xl p-6 flex flex-col justify-between gap-2 shadow-md h-full"
           >
             <div class="flex flex-col gap-2">
-              <PhHeart
+              <Icon
+                name="ph:heart"
                 class="text-3xl bg-primary/10 rounded-full text-primary w-10 h-10 p-2"
               />
               <span class="text-xl font-semibold">Lumière d'été</span>
@@ -140,7 +136,8 @@ watchEffect(() => {
             class="bg-secondary/10 rounded-xl p-6 flex flex-col justify-between gap-2 shadow-md h-full"
           >
             <div class="flex flex-col gap-2">
-              <PhShoppingCart
+              <Icon
+                name="ph:shopping-cart"
                 class="text-3xl bg-primary/10 rounded-full text-primary w-10 h-10 p-2"
               />
               <span class="text-xl font-semibold">Nouveaux Mondes</span>

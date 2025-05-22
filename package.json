@@ -13,7 +13,6 @@
     "@nuxt/eslint": "^1.2.0",
     "@nuxt/fonts": "^0.11.0",
     "@nuxt/image": "^1.10.0",
-    "@phosphor-icons/vue": "^2.2.1",
     "@tailwindcss/vite": "^4.1.6",
     "@vueuse/core": "^13.1.0",
     "epubjs": "^0.3.93",
@@ -25,6 +24,7 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@nuxt/icon": "^1.13.0",
     "@nuxtjs/supabase": "^1.5.0",
     "daisyui": "^5.0.35",
     "supabase": "^2.22.12"

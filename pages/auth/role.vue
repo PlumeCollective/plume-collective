@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { PhBookBookmark, PhPencilSimple } from "@phosphor-icons/vue";
 import type { Database } from "@/database.types";
 
 const currentUser = useSupabaseUser();
@@ -27,6 +26,7 @@ const updateRole = async (role: "reader" | "author") => {
     console.error("Erreur lors de la mise à jour du rôle:", error.message);
     return;
   }
+
   await navigateTo("/library");
 };
 </script>
@@ -48,7 +48,8 @@ const updateRole = async (role: "reader" | "author") => {
         <div
           class="bg-secondary/5 rounded-xl p-6 flex flex-col items-start gap-2 shadow-md"
         >
-          <PhBookBookmark
+          <Icon
+            name="ph:book-bookmark"
             class="text-secondary bg-secondary/10 rounded-full p-1 text-3xl"
           />
           <h3 class="text-lg font-bold text-secondary">Lecteur</h3>
@@ -70,16 +71,15 @@ const updateRole = async (role: "reader" | "author") => {
         <div
           class="bg-secondary/5 rounded-xl p-6 flex flex-col items-start gap-2 shadow-md"
         >
-          <PhPencilSimple
+          <Icon
+            name="ph:pencil-simple"
             class="text-primary bg-primary/10 rounded-full p-1 text-3xl"
           />
-
           <h3 class="text-lg font-bold text-primary">Auteur</h3>
           <p class="text-neutral">
             Publiez vos livres, gérez vos ventes, recevez des corrections et
             développez votre audience.
           </p>
-
           <button
             class="btn btn-primary btn-sm text-white"
             @click="updateRole('author')"

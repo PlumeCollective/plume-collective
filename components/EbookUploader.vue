@@ -10,8 +10,6 @@ const successMessage = ref("");
 const errorMessage = ref("");
 
 const uploadEbook = async (event: Event) => {
-  if (!import.meta.client) return;
-
   const target = event.target as HTMLInputElement;
   const files = target.files;
 

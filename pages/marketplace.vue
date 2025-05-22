@@ -1,11 +1,6 @@
 <script setup lang="ts">
-import { PhMagnifyingGlass } from "@phosphor-icons/vue";
 import ePub from "epubjs";
 import type { Book } from "epubjs";
-
-definePageMeta({
-  ssr: false,
-});
 
 const user = useSupabaseUser();
 
@@ -93,7 +88,7 @@ onMounted(fetchEbooks);
     <div class="form-control">
       <label class="input input-bordered flex items-center gap-2 w-full">
         <input type="text" placeholder="Rechercher un livre, un auteur…" />
-        <PhMagnifyingGlass />
+        <Icon name="ph:magnifying-glass" />
       </label>
     </div>
 

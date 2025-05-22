@@ -3,10 +3,6 @@ import ePub from "epubjs";
 import type { Book, Rendition, Location } from "epubjs";
 import type { Database } from "~/database.types";
 
-definePageMeta({
-  ssr: false,
-});
-
 const supabase = useSupabaseClient<Database>();
 const user = useSupabaseUser();
 const route = useRoute();
@@ -21,8 +17,6 @@ const rendition = ref<Rendition>();
 const currentLocation = ref<Location>();
 
 onMounted(async () => {
-  if (!import.meta.client) return;
-
   const filePath = `${id}.epub`;
 
   const { data, error } = await supabase.storage

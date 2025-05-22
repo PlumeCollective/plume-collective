@@ -1,12 +1,4 @@
 <script setup lang="ts">
-import {
-  PhBooks,
-  PhStorefront,
-  PhPencilSimple,
-  PhBell,
-  PhChartBar,
-  PhUserCircle,
-} from "@phosphor-icons/vue";
 import type { Database } from "~/database.types";
 
 const supabase = useSupabaseClient<Database>();
@@ -52,7 +44,7 @@ const signOut = async () => {
           class="btn btn-sm btn-ghost btn-primary hover:text-white justify-start"
           active-class="btn-active text-white"
         >
-          <PhBooks class="text-lg mr-1" />
+          <Icon name="ph:books" class="text-lg mr-1" />
           <span class="text-base">Bibliothèque</span>
         </NuxtLink>
         <NuxtLink
@@ -60,7 +52,7 @@ const signOut = async () => {
           class="btn btn-sm btn-ghost btn-primary hover:text-white justify-start"
           active-class="btn-active text-white"
         >
-          <PhStorefront class="text-lg mr-1" />
+          <Icon name="ph:storefront" class="text-lg mr-1" />
           <span class="text-base">Marketplace</span>
         </NuxtLink>
         <NuxtLink
@@ -68,7 +60,7 @@ const signOut = async () => {
           class="btn btn-sm btn-ghost justify-start btn-primary hover:text-white"
           active-class="btn-active text-white"
         >
-          <PhPencilSimple class="text-lg mr-1" />
+          <Icon name="ph:pencil-simple" class="text-lg mr-1" />
           <span class="text-base">Corrections</span>
         </NuxtLink>
         <NuxtLink
@@ -76,7 +68,7 @@ const signOut = async () => {
           class="btn btn-sm btn-ghost btn-primary justify-start hover:text-white btn-disabled"
           active-class="btn-active text-white"
         >
-          <PhChartBar class="text-lg mr-1" />
+          <Icon name="ph:chart-bar" class="text-lg mr-1" />
           <span class="text-base">Ventes</span>
         </NuxtLink>
         <NuxtLink
@@ -84,7 +76,7 @@ const signOut = async () => {
           class="btn btn-sm btn-ghost btn-primary justify-start hover:text-white btn-disabled"
           active-class="btn-active text-white"
         >
-          <PhBell class="text-lg mr-1" />
+          <Icon name="ph:bell" class="text-lg mr-1" />
           <span class="text-base">Notifications</span>
         </NuxtLink>
         <NuxtLink
@@ -92,7 +84,7 @@ const signOut = async () => {
           class="btn btn-sm btn-ghost btn-primary justify-start hover:text-white"
           active-class="btn-active text-white"
         >
-          <PhUserCircle class="text-lg mr-1" />
+          <Icon name="ph:user-circle" class="text-lg mr-1" />
           <span class="text-base">Paramètres</span>
         </NuxtLink>
       </nav>
