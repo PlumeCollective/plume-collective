@@ -73,7 +73,7 @@ onMounted(fetchEbooks);
 </script>
 
 <template>
-  <div class="flex flex-col gap-10">
+  <div class="flex flex-col gap-10 max-w-5xl">
     <div class="flex flex-col gap-4">
       <h1 class="text-3xl font-bold">Marketplace</h1>
       <div role="tablist" class="tabs tabs-border">

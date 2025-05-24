@@ -9,7 +9,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-10">
+  <div class="flex flex-col gap-10 max-w-5xl">
     <div>
       <div class="breadcrumbs text-sm">
         <ul>

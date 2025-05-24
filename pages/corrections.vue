@@ -46,7 +46,7 @@ onMounted(async () => {
       )
     `
     )
-    .eq("books.author_id", userId) // 👈 filtre uniquement les annotations des livres publiés par l'utilisateur
+    .eq("books.author_id", userId)
     .order("date_created", { ascending: false });
 
   if (error) {

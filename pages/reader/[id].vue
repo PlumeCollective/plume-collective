@@ -61,30 +61,6 @@ onMounted(async () => {
   }
 });
 
-const saveAnnotation = async (
-  content: string,
-  type: "comment" | "correction" | "other"
-) => {
-  if (!user.value || !selectedAnnotation.value) return;
-
-  const bookId = route.params.id as string;
-
-  const { error } = await supabase.from("annotations").insert({
-    user_id: user.value.id,
-    book_id: bookId,
-    content,
-    position_start: selectedAnnotation.value.cfiRange,
-    type,
-    status: "open",
-  });
-
-  if (error) {
-    console.error("Erreur enregistrement annotation :", error.message);
-  }
-
-  closeModal();
-};
-
 const closeModal = () => {
   annotationContent.value = "";
   selectedAnnotation.value = null;
@@ -111,8 +87,8 @@ watchEffect(() => {
     <AnnotationModal
       :show="showAnnotationModal"
       :selected-text="selectedAnnotation?.text || ''"
+      :cfi-range="selectedAnnotation?.cfiRange || ''"
       @close="closeModal"
-      @save="(content, type) => saveAnnotation(content, type)"
     />
 
     <div>{{ selectedAnnotation }}</div>

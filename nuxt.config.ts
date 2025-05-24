@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/fonts",
     "@nuxtjs/supabase",
+    "@nuxt/test-utils/module",
   ],
   app: {
     head: {

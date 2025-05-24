@@ -1,57 +1,17 @@
 <script setup lang="ts">
+const { email, password, confirmPassword, errorMessage, loading, signupUser } =
+  useSignupUser();
+const user = useSupabaseUser();
+
 definePageMeta({
   layout: "auth",
 });
-
-const supabase = useSupabaseClient();
-const user = useSupabaseUser();
-const email = ref("");
-const password = ref("");
-const confirmPassword = ref("");
-const loading = ref(false);
-const errorMessage = ref("");
 
 watchEffect(() => {
   if (user.value) {
     return navigateTo("/library");
   }
 });
-
-const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-
-const handleSignUp = async () => {
-  loading.value = true;
-  errorMessage.value = "";
-
-  if (password.value !== confirmPassword.value) {
-    errorMessage.value = "Les mots de passe ne correspondent pas.";
-    loading.value = false;
-    return;
-  }
-
-  if (!passwordRegex.test(password.value)) {
-    errorMessage.value =
-      "Le mot de passe doit contenir au moins 8 caractères, une minuscule, une majuscule et un chiffre.";
-    loading.value = false;
-    return;
-  }
-
-  try {
-    const { data, error } = await supabase.auth.signUp({
-      email: email.value,
-      password: password.value,
-    });
-    if (error) throw error;
-    if (!data.user) throw new Error("Utilisateur introuvable");
-
-    await navigateTo("/auth/role");
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (error: any) {
-    errorMessage.value = error.message || "Erreur inconnue.";
-  } finally {
-    loading.value = false;
-  }
-};
 </script>
 
 <template>
@@ -61,7 +21,7 @@ const handleSignUp = async () => {
     <div class="w-full max-w-lg">
       <h1 class="text-4xl font-bold text-neutral mb-4">Créer un compte</h1>
       <p class="mb-8 text-neutral">Rejoignez Plume Collective</p>
-      <form class="flex flex-col gap-4" @submit.prevent="handleSignUp">
+      <form class="flex flex-col gap-4" @submit.prevent="signupUser">
         <div>
           <label class="label">
             <span class="label-text font-bold text-neutral">

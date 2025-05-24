@@ -1,22 +1,26 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   show: boolean;
   selectedText: string;
+  cfiRange: string;
 }>();
 
 const emit = defineEmits<{
   (e: "close"): void;
-  (e: "save", content: string, type: "comment" | "correction" | "other"): void;
 }>();
 
 const content = ref("");
 const selectedType = ref<"comment" | "correction" | "other">("comment");
 
-const handleSave = () => {
-  if (content.value.trim()) {
-    emit("save", content.value.trim(), selectedType.value);
+const { saveAnnotation, errorMessage } = useSaveAnnotation();
+
+const handleSave = async () => {
+  await saveAnnotation(content.value, props.cfiRange, selectedType.value);
+
+  if (!errorMessage.value) {
     content.value = "";
     selectedType.value = "comment";
+    emit("close");
   }
 };
 
@@ -53,6 +57,10 @@ const handleClose = () => {
         rows="4"
         placeholder="Écrivez votre annotation ici..."
       ></textarea>
+
+      <p v-if="errorMessage" class="text-red-500 text-sm">
+        {{ errorMessage }}
+      </p>
 
       <div class="modal-action">
         <button class="btn btn-primary text-white" @click="handleSave">
