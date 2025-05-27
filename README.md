@@ -145,11 +145,3 @@ US3P1-annotation-lecture
 * Les composants sont en PascalCase
 * Pour les fonctions conséquentes, la logique métier est séparée dans le dossier `composables/`
 * Le projet utilise le module `@nuxt/eslint` pour assurer une cohérence du code et détecter les erreurs potentielles pendant le développement, configuré dans le fichier `eslint.config.mjs`.
-
----
-
-## À faire / Améliorations possibles
-
-* Couverture de tests plus exhaustive
-* Documentation utilisateur
-* Ajout de tests end-to-end avec Playwright
