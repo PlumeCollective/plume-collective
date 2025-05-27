@@ -14,7 +14,10 @@
 
 ## Présentation
 
-Ce dépôt contient l'application web **Plume Collective**, une plateforme de lecture et d'édition collaborative construite avec **Nuxt 3** et **Supabase**.
+Ce dépôt contient l'application web **Plume Collective**, une plateforme de lecture et d'édition collaborative construite avec **Nuxt 3** et **Supabase**, et déployée sur **Vercel**.
+Voici les liens du projet sur [Supabase](https://supabase.com/dashboard/project/mlwkbqzbxusbocvyvhdw) et sur [Vercel](https://vercel.com/plumecollectives-projects/plume-collective).
+
+Et voici le lien vers l'application déployée [Plume Collective](https://plume-collective-tau.vercel.app).
 
 Vous trouverez dans ce README les éléments nécessaires à pouvoir collaborer sur ce projet.
 
