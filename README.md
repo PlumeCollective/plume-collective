@@ -119,6 +119,8 @@ Fichier de configuration : `.github/workflows/test.yml`
 * Installation des dépendances
 * Lancement des tests unitaires
 
+Concernant le déploiement continu de l'application, il est effectué automatiquement par Vercel, avec un redéploiement automatisé au moindre commit sur la branche main du projet.
+
 ---
 
 ## Conventions de développement
