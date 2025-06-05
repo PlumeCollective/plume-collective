@@ -1,14 +1,22 @@
-# Documentation technique – Plume Collective
+![Plume Collective Logo]( "Plume Collective")
+
+<div align="center">
+  <a href="https://plume-collective-tau.vercel.app" target="_blank" rel="noopener noreferrer">
+    <img src="./public/logo/plume-collective-logo.svg" alt="Plume Collective Logo"  height="150">
+  </a>
+</div>
+
+# Documentation technique
 
 ## Sommaire
 
-* [Présentation](#présentation)
-* [Structure du projet](#structure-du-projet)
-* [Installation et configuration](#installation-et-configuration)
-* [Connexion Supabase](#connexion-supabase)
-* [Tests](#tests)
-* [CI/CD](#cicd)
-* [Conventions de développement](#conventions-de-développement)
+- [Présentation](#présentation)
+- [Structure du projet](#structure-du-projet)
+- [Installation et configuration](#installation-et-configuration)
+- [Connexion Supabase](#connexion-supabase)
+- [Tests](#tests)
+- [CI/CD](#cicd)
+- [Conventions de développement](#conventions-de-développement)
 
 ---
 
@@ -49,8 +57,8 @@ Pour plus de détail sur la structure d'un projet Nuxt, vous pouvez vous appuyer
 
 ### Prérequis
 
-* Node.js (v22+)
-* NPM (v10+)
+- Node.js (v22+)
+- NPM (v10+)
 
 ### Installation
 
@@ -116,8 +124,8 @@ Fichier de configuration : `.github/workflows/test.yml`
 
 Étapes couvertes :
 
-* Installation des dépendances
-* Lancement des tests unitaires
+- Installation des dépendances
+- Lancement des tests unitaires
 
 Concernant le déploiement continu de l'application, il est effectué automatiquement par Vercel, avec un redéploiement automatisé au moindre commit sur la branche main du projet.
 
@@ -133,9 +141,9 @@ Les branches sont nommées selon la convention suivante :
 US?P?-courte-description
 ```
 
-* `US` : identifiant de la User Story
-* `P` : niveau de priorité
-* `courte-description` : indication de la tâche
+- `US` : identifiant de la User Story
+- `P` : niveau de priorité
+- `courte-description` : indication de la tâche
 
 Exemple :
 
@@ -147,6 +155,6 @@ US3P1-annotation-lecture
 
 ### Autres conventions
 
-* Les composants sont en PascalCase
-* Pour les fonctions conséquentes, la logique métier est séparée dans le dossier `composables/`
-* Le projet utilise le module `@nuxt/eslint` pour assurer une cohérence du code et détecter les erreurs potentielles pendant le développement, configuré dans le fichier `eslint.config.mjs`.
+- Les composants sont en PascalCase
+- Pour les fonctions conséquentes, la logique métier est séparée dans le dossier `composables/`
+- Le projet utilise le module `@nuxt/eslint` pour assurer une cohérence du code et détecter les erreurs potentielles pendant le développement, configuré dans le fichier `eslint.config.mjs`.
