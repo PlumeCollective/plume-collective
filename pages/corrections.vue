@@ -30,6 +30,7 @@ onMounted(async () => {
     .select(
       `
       id,
+      content,
       type,
       status,
       date_created,
@@ -46,7 +47,6 @@ onMounted(async () => {
       )
     `
     )
-    .eq("books.author_id", userId)
     .order("date_created", { ascending: false });
 
   if (error) {
@@ -64,6 +64,7 @@ onMounted(async () => {
       : "-",
     statut: ann.status,
     type: ann.type,
+    extrait: ann.content?.slice(0, 40) || "", // ➕ ici
   }));
 });
 </script>
@@ -104,6 +105,7 @@ onMounted(async () => {
             <th>Date d’envoi</th>
             <th>Statut</th>
             <th>Type & Actions</th>
+            <th>Extrait</th>
           </tr>
         </thead>
         <tbody>
@@ -125,6 +127,7 @@ onMounted(async () => {
             <td>{{ row.date }}</td>
             <td>{{ row.statut }}</td>
             <td>{{ row.type }}</td>
+            <td>{{ row.extrait }}</td>
           </tr>
         </tbody>
       </table>

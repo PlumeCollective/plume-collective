@@ -91,7 +91,6 @@ watchEffect(() => {
       @close="closeModal"
     />
 
-    <div>{{ selectedAnnotation }}</div>
     <div class="flex justify-end p-8">
       <NuxtLink to="/" class="btn btn-primary text-white rounded-xl"
         >← Retour</NuxtLink
