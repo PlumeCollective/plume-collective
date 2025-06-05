@@ -1,5 +1,3 @@
-![Plume Collective Logo]( "Plume Collective")
-
 <div align="center">
   <a href="https://plume-collective-tau.vercel.app" target="_blank" rel="noopener noreferrer">
     <img src="./public/logo/plume-collective-logo.svg" alt="Plume Collective Logo"  height="150">
