@@ -86,10 +86,6 @@ watchEffect(() => {
             Se connecter
           </NuxtLink>
         </div>
-
-        <div class="flex justify-center mt-8 text-sm">
-          <a href="#" class="link text-primary">Mot de passe oublié ?</a>
-        </div>
       </form>
     </div>
     <NuxtImg src="ui/connection-panel.png" alt="Mockup" class="h-full" />
